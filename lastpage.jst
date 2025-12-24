@@ -19,13 +19,10 @@
 
     <p>
         <b>D-score:</b>
-        <%= (global && global.raceiat && typeof global.raceiat.d !== 'undefined'
-            ? global.raceiat.d.toFixed(2)
-            : '—') %>
-        <br/>
-        <%= (global && global.raceiat && global.raceiat.feedback
-            ? global.raceiat.feedback
-            : 'К сожалению, по техническим причинам результат теста не был рассчитан.') %>
+        <span id="d-score">—</span><br/>
+        <span id="iat-feedback">
+            К сожалению, по техническим причинам результат теста не был рассчитан.
+        </span>
     </p>
 
     <p>
@@ -44,3 +41,23 @@
         </button>
     </div>
 </div>
+
+<script>
+(function () {
+    try {
+        var fb = window.raceiatFeedback;
+        if (!fb || typeof fb.d === 'undefined') {
+            // результата нет — оставляем текст по умолчанию
+            return;
+        }
+
+        var dSpan    = document.getElementById('d-score');
+        var textSpan = document.getElementById('iat-feedback');
+
+        if (dSpan)    dSpan.textContent    = fb.d.toFixed(2);
+        if (textSpan && fb.feedback) textSpan.textContent = fb.feedback;
+    } catch (e) {
+        console.error('Ошибка при выводе результата IAT:', e);
+    }
+})();
+</script>
