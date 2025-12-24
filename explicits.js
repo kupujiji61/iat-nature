@@ -18,24 +18,24 @@ define(['questAPI'], function(Quest){
     /**
 	* Question prototypes
 	*/
-    API.addQuestionsSet('basicQ',{
-        decline: 'false',
-        required : true, 		
-        errorMsg: {
-            required: isTouch 
-                ? 'Выберите подходящий вариант ответа'
-                : 'Выберите подходящий вариант ответа'
-        },
-        autoSubmit:'true',
-        numericValues:'true',
+	API.addQuestionsSet('basicQ',{
+		decline: 'false',
+		required : true,
+		errorMsg: {
+			required: isTouch
+				? "Выберите подходящий вариант ответа"
+				: "Выберите подходящий вариант ответа"
+		},
+		autoSubmit: 'true',
+		numericValues: 'true',
 		help: false,
-		helpText: '' 
-    });
-
-    API.addQuestionsSet('basicSelect',{
-        inherit :'basicQ',
-        type: 'selectOne'
-    });
+		helpText: ''
+	});
+	
+	API.addQuestionsSet('basicSelect',{
+		inherit: 'basicQ',
+		type: 'selectOne'
+	});
 	
     API.addQuestionsSet('basicDropdown',{
         inherit :'basicQ',
