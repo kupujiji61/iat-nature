@@ -1,25 +1,47 @@
-<div class="panel panel-info" style="margin-top:1em">
-		<div class="panel-heading">
-			<h1 class="panel-title" style="font-size:2em">
-				Благодарим Вас
-			</h1>
-		</div>
+<div class="panel panel-info" style="margin-top:1em"> 
+    <div class="panel-heading">
+        <h1 class="panel-title" style="font-size:2em">
+            Благодарим Вас
+        </h1>
+    </div>
 </div>
 
 <div class="panel-body">
-	<p class='lead'>
-		<b>Благодарим Вас за участие в тесте!</b>
-		<br/><br/>
-		Пожалуйста, нажмите кнопку "Закончить" ниже, чтобы завершить исследование
-	</p>
-	<div class="text-center proceed" style="margin: 30px auto 10px;">
-		<button pi-message-done type="button" class="btn btn-primary">
-			Закончить
-		</button>
-	</div>
+    <p class='lead'>
+        <b>Благодарим Вас за участие в тесте!</b>
+        <br/><br/>
+        Ниже приведён Ваш результат по тесту скрытых ассоциаций.
+    </p>
+
+    <% if (global && global.raceiat && typeof global.raceiat.d !== 'undefined') { %>
+        <hr/>
+
+        <h3>Ваш результат</h3>
+
+        <p>
+            <b>D-score:</b> <%= global.raceiat.d.toFixed(2) %><br/>
+            <%= global.raceiat.feedback %>
+        </p>
+
+        <p>
+            Чем больше по модулю значение D-score, тем сильнее выражена автоматическая
+            связь между сравниваемыми категориями. Значения, близкие к 0, указывают на то,
+            что Вы примерно одинаково быстро соотносили разные пары категорий.
+        </p>
+    <% } else { %>
+        <hr/>
+        <p>
+            К сожалению, по техническим причинам результат теста не был рассчитан.
+        </p>
+    <% } %>
+
+    <p>
+        Пожалуйста, нажмите кнопку «Закончить» ниже, чтобы завершить исследование.
+    </p>
+
+    <div class="text-center proceed" style="margin: 30px auto 10px;">
+        <button pi-message-done type="button" class="btn btn-primary">
+            Закончить
+        </button>
+    </div>
 </div>
-
-
-
-
-
