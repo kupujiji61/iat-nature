@@ -375,19 +375,21 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 		API.addSettings('base_url',piCurrent.base_url);
 		API.addSettings('hooks',{
 			endTask: function(){
-				// 1. Считаем D-score
 				var DScoreObj = scorer.computeD();
-				
-				// 2. Сохраняем внутри текущего скрипта IAT
 				piCurrent.feedback = DScoreObj.FBMsg;
 				piCurrent.d        = DScoreObj.DScore;
-				
-				// 3. Сохраняем в глобальный объект, чтобы lastpage.jst мог прочитать
 				var global = API.getGlobal();
 				global.raceiat = global.raceiat || {};
 				global.raceiat.d        = DScoreObj.DScore;
 				global.raceiat.feedback = DScoreObj.FBMsg;
-				// 4. Отправляем данные на сервер (OSF/datapipe)
+				
+				if (typeof window !== 'undefined') {
+					window.raceiatFeedback = {
+						d: DScoreObj.DScore,
+						feedback: DScoreObj.FBMsg
+					};
+				}
+				
 				API.save({
 					block3Cond: block3Cond,
 					feedback:   DScoreObj.FBMsg,
