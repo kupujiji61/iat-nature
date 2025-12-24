@@ -1,63 +1,20 @@
-<div class="panel panel-info" style="margin-top:1em"> 
-    <div class="panel-heading">
-        <h1 class="panel-title" style="font-size:2em">
-            Благодарим Вас
-        </h1>
-    </div>
+<div class="panel panel-info" style="margin-top:1em">
+		<div class="panel-heading">
+			<h1 class="panel-title" style="font-size:2em">
+				Благодарим Вас
+			</h1>
+		</div>
 </div>
 
 <div class="panel-body">
-    <p class="lead">
-        <b>Благодарим Вас за участие в тесте!</b>
-        <br/><br/>
-        Ниже приведён Ваш результат по тесту скрытых ассоциаций.
-    </p>
-
-    <hr/>
-
-    <h3>Ваш результат</h3>
-
-    <p>
-        <b>D-score:</b>
-        <span id="d-score">—</span><br/>
-        <span id="iat-feedback">
-            К сожалению, по техническим причинам результат теста не был рассчитан.
-        </span>
-    </p>
-
-    <p>
-        Чем больше по модулю значение D-score, тем сильнее выражена автоматическая связь
-        между сравниваемыми категориями. Значения, близкие к 0, указывают на то, что Вы
-        примерно одинаково быстро соотносили разные пары категорий.
-    </p>
-
-    <p>
-        Пожалуйста, нажмите кнопку «Закончить» ниже, чтобы завершить исследование.
-    </p>
-
-    <div class="text-center proceed" style="margin: 30px auto 10px;">
-        <button pi-message-done type="button" class="btn btn-primary">
-            Закончить
-        </button>
-    </div>
+	<p class='lead'>
+		<b>Благодарим Вас за участие в тесте!</b>
+		<br/><br/>
+		Пожалуйста, нажмите кнопку "Закончить" ниже, чтобы завершить исследование
+	</p>
+	<div class="text-center proceed" style="margin: 30px auto 10px;">
+		<button pi-message-done type="button" class="btn btn-primary">
+			Закончить
+		</button>
+	</div>
 </div>
-
-<script>
-(function () {
-    try {
-        var fb = window.raceiatFeedback;
-        if (!fb || typeof fb.d === 'undefined') {
-            // результата нет — оставляем текст по умолчанию
-            return;
-        }
-
-        var dSpan    = document.getElementById('d-score');
-        var textSpan = document.getElementById('iat-feedback');
-
-        if (dSpan)    dSpan.textContent    = fb.d.toFixed(2);
-        if (textSpan && fb.feedback) textSpan.textContent = fb.feedback;
-    } catch (e) {
-        console.error('Ошибка при выводе результата IAT:', e);
-    }
-})();
-</script>
