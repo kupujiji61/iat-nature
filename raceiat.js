@@ -4,9 +4,9 @@ define(['pipAPI','./iat10_ru.js'], function(APIConstructor, iatExtension){
 
     return iatExtension({
         category1 : {
-                name : 'Башкирский',
+                name : 'Башкиры',
                 title : {
-                    media : { word : 'Башкирский' },
+                    media : { word : 'Башкиры' },
                     css   : { color:'#31940F','font-size':'1.8em' },
                     height: 4
                 },
@@ -25,9 +25,9 @@ define(['pipAPI','./iat10_ru.js'], function(APIConstructor, iatExtension){
 
             // Таргет 2: Русский
             category2 : {
-                name : 'Русский',
+                name : 'Русские',
                 title : {
-                    media : { word : 'Русский' },
+                    media : { word : 'Русские' },
                     css   : { color:'#31940F','font-size':'1.8em' },
                     height: 4
                 },
