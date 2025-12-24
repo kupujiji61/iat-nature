@@ -23,8 +23,8 @@ define(['questAPI'], function(Quest){
         required : true, 		
         errorMsg: {
             required: isTouch 
-                ? 'Выберите подходящий вариант ответа''
-                : 'Выберите подходящий вариант ответа''
+                ? 'Выберите подходящий вариант ответа'
+                : 'Выберите подходящий вариант ответа'
         },
         autoSubmit:'true',
         numericValues:'true',
