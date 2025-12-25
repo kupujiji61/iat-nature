@@ -93,7 +93,7 @@ define(['questAPI'], function(Quest){
         ]
     });
 
-	    // 6. События, усилившие ощущение национальной принадлежности
+	// 6. События, усилившие ощущение национальной принадлежности
     API.addQuestionsSet('eventsNat',{
         inherit : 'basicSelect',
         name: 'events_nat_awareness',
@@ -187,6 +187,10 @@ define(['questAPI'], function(Quest){
             inherit:'basicPage',
             questions: {inherit:'sigOtherSameNat'}
         },
+		{ // 6. События, усилившие ощущение национальной принадлежности
+            inherit:'basicPage',
+            questions: {inherit:'eventsNat'}
+        },
         { // 4. Негативное отношение из-за национальности
             inherit:'basicPage',
             questions: {inherit:'badTreatmentNat'}
@@ -194,10 +198,6 @@ define(['questAPI'], function(Quest){
         { // 5. Работа, связанная с национальностью
             inherit:'basicPage',
             questions: {inherit:'workNat'}
-        },
-        { // 6. События, усилившие ощущение национальной принадлежности
-            inherit:'basicPage',
-            questions: {inherit:'eventsNat'}
         },
         { // 7. Языковые практики в детстве/подростковом возрасте
             inherit:'basicPage',
