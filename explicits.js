@@ -93,8 +93,9 @@ define(['questAPI'], function(Quest){
 		name: 'born_bashkortostan',
 		stem: 'Вы родились, жили или живете в Республике Башкортостан?',
 		answers: [
-			{text:'Да',  value:1},
-			{text:'Нет', value:2}
+			{text:'Проживаю в Башкортостане',  value:1},
+			{text:'Сейчас не живу, но родился / проживал в Башкортостане', value:2},
+			{text:'Ничего из перечисленного', value:3}
 		]
 	});
 	
