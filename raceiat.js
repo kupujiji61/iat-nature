@@ -17,9 +17,9 @@ define(['pipAPI','./iat10_ru.js'], function(APIConstructor, iatExtension){
                     { word: 'Агидель' },
                     { word: 'Бешмет' },
                     { word: 'Курай' },
-                    { word: 'Изба' },
-                    { word: 'Квас' }, 
-                    { word: 'Шапка-ушанка' }
+                    { word: 'Юрта' },
+                    { word: 'Кумыс' }, 
+                    { word: 'Тюбитейка' }
                 ],
                 stimulusCss : { color:'#31940F','font-size':'2.3em' }
             },
