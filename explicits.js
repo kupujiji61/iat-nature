@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: false,
         declineText: isTouch ? 'Decline' : 'Отказ от ответа', 
         autoFocus:true, 
-        progressBar:  'Страница <%= pagesMeta.number %> из 9',
+        progressBar:  'Страница <%= pagesMeta.number %> из 10',
 		submitText: 'Далее'
     });
 	
@@ -87,7 +87,18 @@ define(['questAPI'], function(Quest){
 	});
 
     // 2. Оценка одиночества / потерянности после первого отъезда из дома
-    API.addQuestionsSet('lonelinessMove',{
+    
+	API.addQuestionsSet('bornBashkortostan',{
+		inherit : 'basicSelect',
+		name: 'born_bashkortostan',
+		stem: 'Вы родились, жили или живете в Республике Башкортостан?',
+		answers: [
+			{text:'Да',  value:1},
+			{text:'Нет', value:2}
+		]
+	});
+	
+	API.addQuestionsSet('lonelinessMove',{
         inherit : 'basicSelect',
         name: 'loneliness_first_move',
         stem: 'Оцените, насколько сильно Вы испытывали чувство одиночества и потерянности в первое время после того, как впервые уехали из родного дома в другой населенный пункт:',
@@ -194,7 +205,11 @@ define(['questAPI'], function(Quest){
     /************* ПОСЛЕДОВАТЕЛЬНОСТЬ СТРАНИЦ *************/
 
     API.addSequence([
-        { // 1. Открытый вопрос про самоидентификацию
+        { // НОВЫЙ ВОПРОС: Башкортостан
+			inherit:'basicPage',
+			questions: {inherit:'bornBashkortostan'}
+		},
+		{ // 1. Открытый вопрос про самоидентификацию
             inherit:'basicPage',
             questions: {inherit:'natChoiceOpen'}
         },
